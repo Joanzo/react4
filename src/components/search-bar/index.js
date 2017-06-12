@@ -10,11 +10,10 @@ class SearchBar extends Component {
     render() {
         return (
             <div>
-                <input type="text" 
+                <input className="form-control mr-sm-2" type="text" placeholder="Search"
                     value={this.state.term}
                     onChange={event => this.setState({ term: event.target.value })}
                 />
-                {this.state.term}
             </div>
         )
     }
