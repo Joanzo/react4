@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
 
-import SearchBar from '../../../components/search-bar';
 
-class topNavigation extends Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-    }
-    render() {
+const topNavigation = (props) => {
     return (
         <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,13 +30,11 @@ class topNavigation extends Component {
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                    <SearchBar onSearchTermChange={this.props.onSearchTermChange} />
                     <button className="btn btn-outline-success my-2 my-sm-0">Search</button>
                 </form>
             </div>
         </nav>
     )
-    }
 }
 
 export default topNavigation;
