@@ -2,16 +2,24 @@ import './assets';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+
+
 import TopNavigation from './components/navigations/top-navigation';
-import VideoDetailPage from './pages/video-detail-page';
+import VideoslPage from './pages/videos-page';
 import BooksPage from './pages/books-page';
 
 
 
+
+import Reducers from './pages/books-page/reducer';
+
+const createStoreWithMiddleware = applyMiddleware()(createStore);
+
 class App extends Component {
     constructor(props) {
         super(props);
-
     }
 
 
@@ -20,7 +28,7 @@ class App extends Component {
             <div>
                 <TopNavigation  />
                 <BooksPage />
-                {/*<VideoDetailPage /> */}
+                {/*<VideosPage /> */}
 
             </div>
         )
@@ -28,6 +36,9 @@ class App extends Component {
 
 }
 ReactDOM.render(
-    <App />,
+    <Provider store={createStoreWithMiddleware(Reducers)}>
+        <App />
+    </Provider>
+    ,
     document.querySelector('#app')
 );
