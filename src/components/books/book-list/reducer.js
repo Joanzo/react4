@@ -1,13 +1,17 @@
 export default () => {
     return [
         {
-            title: 'Harry Porter'
+            title: 'Harry Porter',
+            pages: 150
         }, {
-            title: 'PC Magazine'
+            title: 'PC Magazine',
+            pages: 120
         }, {
-            title: 'FHM'
+            title: 'FHM',
+            pages: 54
         }, {
-            title: 'Android Authority'
+            title: 'Android Authority',
+            pages: 1
         }
     ]
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const VideoListItem = ({book}) => {
+const VideoListItem = ({book, selectBook}) => {
     return (
-        <div className="video-list-item list-group-item">
+        <div className="video-list-item list-group-item" onClick={() => selectBook(book)}>
             <div className="video-list media">
                 <div className="media-left d-flex mr-3">
                     

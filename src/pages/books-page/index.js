@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import BookList from '../../components/books/book-list';
+import BookDetail from '../../components/books/book-detail';
 
 class BooksPage extends Component {
     constructor(props) {
@@ -30,14 +31,11 @@ class BooksPage extends Component {
 
 
                         <div className="col-sm-8 blog-main">
-
+                                {<BookDetail />}
                             
                             <br/>
                             <br/>
-                            <nav className="blog-pagination">
-                                <a className="btn btn-outline-primary" href="#">Older</a>
-                                <a className="btn btn-outline-secondary disabled" href="#">Newer</a>
-                            </nav>
+
 
                         </div> {/* Blog Main */}
 

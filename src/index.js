@@ -10,10 +10,10 @@ import TopNavigation from './components/navigations/top-navigation';
 import VideoslPage from './pages/videos-page';
 import BooksPage from './pages/books-page';
 
+import Reducers from './reducer';
 
+// import Reducers from './pages/books-page/reducer';
 
-
-import Reducers from './pages/books-page/reducer';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
