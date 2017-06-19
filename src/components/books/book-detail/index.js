@@ -10,7 +10,7 @@ class BookDetail extends Component {
         if (!this.props.activeBook) {
             return (
                 <div>
-                    Waiting...
+                    Choose your book...
                 </div>
             )
         }

@@ -8,7 +8,7 @@ import YTSearch from 'youtube-api-search';
 
 const API_KEY = 'AIzaSyBuJuequBQUmhZrwGN4Y07v7ZHCD6ho94g';
 
-class VideoDetailPage extends Component {
+class VideosPage extends Component {
     constructor(props) {
         super(props);
         
@@ -88,4 +88,4 @@ class VideoDetailPage extends Component {
 
 }
 
-export default VideoDetailPage;
+export default VideosPage;
