@@ -21,7 +21,6 @@ class VideosPage extends Component {
     }
 
     videoSearch(term) {
-        console.log('videoSearch: ', term);
         YTSearch({key: API_KEY, term: term}, (videos) => {
             this.setState({ 
                 videos,

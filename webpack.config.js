@@ -12,13 +12,16 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: 'build/'
+    publicPath: '/build'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'babel-preset-env']
+        },
         exclude: /(node_modules|bower_components)/
       },{
         test: /\.scss$/,
@@ -36,6 +39,9 @@ const config = {
         })
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true 
   },
   plugins: [
       extractSass
