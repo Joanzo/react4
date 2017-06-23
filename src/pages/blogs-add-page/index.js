@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {Route, BrowserRouter} from 'react-router-dom';
-import BlogList from '../../components/blogs/blog-list';
-import BlogsAddPage from '../blogs-add-page';
+import BlogAdd from '../../components/blogs/blog-add';
 
 
-class BlogsPage extends Component {
+class BlogsAdd extends Component {
     constructor(props) {
         super(props);
     }
@@ -14,8 +12,8 @@ class BlogsPage extends Component {
                 <div className="blog-header">
                     <div className="container">
                         <br /><br /><br /><br /><br />
-                        <h1 className="blog-title">Blogs Page</h1>
-                        <p className="lead blog-description">Select Book on Change</p>
+                        <h1 className="blog-title">Blogs Add</h1>
+                        <p className="lead blog-description">Fill the form to add new blog</p>
                         
                         <br /><br /><br />
                         
@@ -27,7 +25,7 @@ class BlogsPage extends Component {
 
                         <div className="col-sm-8  blog-sidebar">
                             <div className="sidebar-module sidebar-module-inset">
-                                <BlogList />
+                                <BlogAdd />
                             </div>
                         </div> {/* .blog-sidebar */}
 
@@ -46,11 +44,9 @@ class BlogsPage extends Component {
                     </div> {/* .row  */}
 
                 </div> {/* .container */}
-
             </div>
-
         )
     }
 }
 
-export default BlogsPage;
+export default BlogsAdd;

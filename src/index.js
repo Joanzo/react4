@@ -1,7 +1,7 @@
 import './assets';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -13,6 +13,8 @@ import VideosPage from './pages/videos-page';
 import BooksPage from './pages/books-page';
 import WeatherPage from './pages/weather-page';
 import BlogsPage from './pages/blogs-page';
+import BlogsAddPage from './pages/blogs-add-page';
+import NotFoundPage from './pages/not-found-page';
 
 import Reducers from './reducer';
 
@@ -30,10 +32,15 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <TopNavigation  />
-                    <Route path="/videos" component={VideosPage} />
-                    <Route path="/books" component={BooksPage} />
-                    <Route path="/weather" component={WeatherPage} />
-                    <Route exact path="/" component={BlogsPage} />
+                        <Switch>
+                            <Route path="/videos" component={VideosPage} />
+                            <Route path="/books" component={BooksPage} />
+                            <Route path="/weather" component={WeatherPage} />
+                            <Route path="/blogs/add" component={BlogsAddPage}  />
+                            <Route exact path="/blogs" component={BlogsPage} />
+                            <Route exact path="/" component={BlogsPage} />
+                            <Route component={NotFoundPage} />
+                        </Switch>
                 </div>
             </BrowserRouter>
         )

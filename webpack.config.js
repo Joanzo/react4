@@ -41,7 +41,7 @@ const config = {
     ]
   },
   devServer: {
-    historyApiFallback: true 
+    historyApiFallback: true
   },
   plugins: [
       extractSass

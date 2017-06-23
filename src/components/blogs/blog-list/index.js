@@ -18,11 +18,11 @@ class BlogList extends Component {
     }
 
     renderList() {
-        if (_.isEmpty(this.props.blogData)) {
+        if (_.isEmpty(this.props.blogs)) {
             return 'Loading...';
         }
 
-        return _.map(this.props.blogData, blogItem => {
+        return _.map(this.props.blogs, blogItem => {
             return (
                 <BlogListItem key={blogItem.id} blogItem={blogItem} />
             )
@@ -43,7 +43,7 @@ function mapStateToProps(state) {
     console.log('state: ', state);
     // Whatever is returned will show up as props inside of BlogList
     return {
-        blogData: state.blogData,
+        blogs: state.blogs,
     };
 }
 function mapDispatchToProps(dispatch) {
