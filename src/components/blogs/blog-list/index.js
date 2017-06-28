@@ -32,7 +32,7 @@ class BlogList extends Component {
     }
     render() {
         return (
-            <div className="book-list-container list-group">
+            <div className="blog-list-container list-group">
                 {this.renderList()}
             </div>
         );
@@ -40,7 +40,6 @@ class BlogList extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('state: ', state);
     // Whatever is returned will show up as props inside of BlogList
     return {
         blogs: state.blogs,

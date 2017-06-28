@@ -12,8 +12,10 @@ import TopNavigation from './components/navigations/top-navigation';
 import VideosPage from './pages/videos-page';
 import BooksPage from './pages/books-page';
 import WeatherPage from './pages/weather-page';
+import HomePage from './pages/home-page';
 import BlogsPage from './pages/blogs-page';
 import BlogsAddPage from './pages/blogs-add-page';
+import BlogsDetailPage from './pages/blogs-detail-page';
 import NotFoundPage from './pages/not-found-page';
 
 import Reducers from './reducer';
@@ -32,15 +34,16 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <TopNavigation  />
-                        <Switch>
-                            <Route path="/videos" component={VideosPage} />
-                            <Route path="/books" component={BooksPage} />
-                            <Route path="/weather" component={WeatherPage} />
-                            <Route path="/blogs/add" component={BlogsAddPage}  />
-                            <Route exact path="/blogs" component={BlogsPage} />
-                            <Route exact path="/" component={BlogsPage} />
-                            <Route component={NotFoundPage} />
-                        </Switch>
+                    <Switch>
+                        <Route path="/videos" component={VideosPage} />
+                        <Route path="/books" component={BooksPage} />
+                        <Route path="/weather" component={WeatherPage} />
+                        <Route path="/blogs/add" component={BlogsAddPage}  />
+                        <Route exact path="/blogs/:id" component={BlogsDetailPage} />
+                        <Route exact path="/blogs" component={BlogsPage} />
+                        <Route exact path="/" component={HomePage} />
+                        <Route component={NotFoundPage} />
+                    </Switch>
                 </div>
             </BrowserRouter>
         )

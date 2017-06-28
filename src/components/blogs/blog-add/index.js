@@ -2,41 +2,53 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Link, withRouter} from 'react-router-dom';
+
+import {addBlog} from './action';
 
 
 class BlogAdd extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
     }
     onSubmit(values) {
-        console.log(values);
+        this.props.addBlog(values, () => {
+            console.log(this.props.history);
+            this.props.history.push('/blogs');
+        });
     }
     renderField(field) {
-        let label = null;
+        const { meta: {touched, error} } = field;
+
+        let labelElement = null;
         if (field.label) {
-            label = <label htmlFor={field.id}>{field.label}</label>
+            labelElement = <label htmlFor={field.id}>{field.label}</label>
         }
 
-        let element = null;
+        let fieldElement = null;
+        let fieldElementClass = `${field.className} ${touched && error ? 'form-control-danger' : ''}`;
         switch(field.element) {
             case 'input': 
-                element = <input type={field.type} id={field.id} className={field.className} placeholder={field.placeholder} {...field.input} />
+                fieldElement = <input type={field.type} id={field.id} className={fieldElementClass} placeholder={field.placeholder} {...field.input} />
                 break;
             case 'textarea': 
-                element = <textarea id={field.id} className={field.className} rows={field.rows}  {...field.input} />
+                fieldElement = <textarea id={field.id} className={field.className} rows={field.rows}  {...field.input} />
                 break;
         }
 
-        let error = null;
-        if (field.meta.error) {
-            error = <small className="form-text text-muted text-danger">{field.meta.error}</small>
+        let errorElement = null;
+        if (touched && error) {
+            errorElement = <small className="form-text text-muted text-danger">{error}</small>
         }
 
+        let formGroupClass = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
+
         return (
-            <div>
-                {label}
-                {element}
-                {error}
+            <div className={formGroupClass}>
+                {labelElement}
+                {fieldElement}
+                {errorElement}
             </div>
         );
     }
@@ -44,19 +56,17 @@ class BlogAdd extends Component {
         const {handleSubmit} = this.props;
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <div className="form-group">
-                    <Field component={this.renderField} label="Title" name="title" element="input"
-                     id="blog-title-form" type="text" className="form-control" placeholder="Title"/>
-                </div>
-                <div className="form-group">
-                    <Field component={this.renderField} name="categories" label="Categories" element="input"
-                      type="text" id="blog-categories-form" className="form-control" placeholder="Categories"/>                 
-                </div>
-                <div className="form-group">
-                    <Field component={this.renderField} name="content" label="Content" element="textarea" 
-                    className="form-control" id="blog-content-form" rows="5" />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <Field component={this.renderField} label="Title" name="title" element="input"
+                    id="blog-title-form" type="text" className="form-control" placeholder="Title"/>
+
+                <Field component={this.renderField} name="categories" label="Categories" element="input"
+                    type="text" id="blog-categories-form" className="form-control" placeholder="Categories"/>                            
+
+                <Field component={this.renderField} name="content" label="Content" element="textarea" 
+                className="form-control" id="blog-content-form" rows="5" />
+
+                <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                <Link className="btn btn-secondary" to="/">Cancel</Link>
             </form>
         )
     }
@@ -90,4 +100,6 @@ function validate(values) {
 export default reduxForm({
     validate,
     form: 'AddNewBlog'
-})(BlogAdd);
+})(
+    withRouter(connect(null,{addBlog}) (BlogAdd))
+);

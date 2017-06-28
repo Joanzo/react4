@@ -20,7 +20,13 @@ const config = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'babel-preset-env']
+          presets: [
+            'react', 
+            'babel-preset-env'
+          ],
+          plugins: [
+            'transform-object-rest-spread'
+          ]
         },
         exclude: /(node_modules|bower_components)/
       },{

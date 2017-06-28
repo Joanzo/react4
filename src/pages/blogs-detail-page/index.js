@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Route, BrowserRouter} from 'react-router-dom';
-import BlogList from '../../components/blogs/blog-list';
+import BlogDetail from '../../components/blogs/blog-detail';
+import BlogDelete from '../../components/blogs/blog-delete';
 
 
 class BlogsPage extends Component {
@@ -14,7 +14,7 @@ class BlogsPage extends Component {
                     <div className="container">
                         <br /><br /><br /><br /><br />
                         <h1 className="blog-title">Blogs Page</h1>
-                        <p className="lead blog-description">Select Book on Change</p>
+                        <p className="lead blog-description">Blog Detail Page</p>
                         
                         <br /><br /><br />
                         
@@ -24,20 +24,13 @@ class BlogsPage extends Component {
 
                     <div className="row">
 
-                        <div className="col-sm-8  blog-sidebar">
-                            <div className="sidebar-module sidebar-module-inset">
-                                <BlogList />
-                            </div>
+                        <div className="col-sm-8  blog-main">
+                            <BlogDetail />
                         </div> {/* .blog-sidebar */}
 
 
-                        <div className="col-sm-4 blog-main">
-
-                            
-                            <br/>
-                            <br/>
-
-
+                        <div className="col-sm-4 blog-sidebar">
+                            <BlogDelete />
                         </div> {/* Blog Main */}
 
 

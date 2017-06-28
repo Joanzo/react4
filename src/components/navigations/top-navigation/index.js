@@ -8,7 +8,7 @@ const topNavigation = (props) => {
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <a className="navbar-brand" href="#">Navbar</a>
+            <Link className="navbar-brand" to="/">React Training</Link>
 
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul className="navbar-nav mr-auto">
@@ -25,7 +25,7 @@ const topNavigation = (props) => {
                         <Link className="nav-link" to="/weather">Weather</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/blogs/add">Add Blog</Link>
+                        <Link className="nav-link" to="/blogs">Blogs</Link>
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -37,7 +37,7 @@ const topNavigation = (props) => {
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                    <button className="btn btn-outline-success my-2 my-sm-0">Search</button>
+                    <Link className="btn btn-outline-success my-2 my-sm-0" to="/blogs/add">Add Blog</Link>
                 </form>
             </div>
         </nav>

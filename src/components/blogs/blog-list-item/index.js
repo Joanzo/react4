@@ -1,26 +1,27 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Link} from 'react-router-dom';
 
 class BlogListItem extends Component {
     constructor(props) {
         super(props);
     }
     render() {
+        const blogItemURL = `/blogs/${this.props.blogItem.id}`;
         return (
             <div className="video-list-item list-group-item">
-                <div className="video-list media">
-                    <div className="media-left d-flex mr-3">
-                        
-                    </div>
-                    <div className="media-body">
-                        <div className="media-heading">
-                            <h6 className="mt-0 mb-3">
-                                {this.props.blogItem.title}
-                            </h6>
+                <Link className="d-block w-100" to={blogItemURL}>
+                    <div className="video-list media">
+                        <div className="media-body">
+                            <div className="media-heading">
+                                <h6 className="mb-0">
+                                    {this.props.blogItem.title}
+                                </h6>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
         )
     }
