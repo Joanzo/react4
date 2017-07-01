@@ -33,8 +33,8 @@ class BlogDetail extends Component {
     }
 }
 
-function mapStateToProps({blog}, ownProps) {
-    return {blog: blog[ownProps.match.params.id]}
+function mapStateToProps({blogs}, ownProps) {
+    return {blog: blogs[ownProps.match.params.id]}
 }
 
 /*

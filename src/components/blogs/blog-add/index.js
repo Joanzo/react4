@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 
+import _ from 'lodash';
+
 import {addBlog} from './action';
 
 
@@ -92,6 +94,16 @@ function validate(values) {
         errors.content = 'Enter some content please';
     }
 
+    // Refactor into below:
+/*
+    _.each(FIELDS,(type,field) => {
+        if (!values[field]) {
+            errors[field] = `Enter some ${field}`
+        }
+    })
+
+*/
+
     // if errors is empty, the form is fine to submit
     // If errors has any properties, redux form assumes form is invalid
     return errors;
@@ -99,7 +111,7 @@ function validate(values) {
 
 export default reduxForm({
     validate,
-    form: 'AddNewBlog'
+    form: 'AddNewBlog',
 })(
     withRouter(connect(null,{addBlog}) (BlogAdd))
 );

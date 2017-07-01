@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 import { connect } from 'react-redux';
 
-//import { bindActionCreators } from 'redux';
+import {store} from '../../../store';
 
 class BlogList extends Component {
     constructor(props) {
@@ -15,6 +15,8 @@ class BlogList extends Component {
     }
     componentDidMount() {
         this.props.fetchBlogs();
+        console.log('STORES: ', store.getState());
+
     }
 
     renderList() {
